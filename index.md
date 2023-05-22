@@ -9,42 +9,38 @@ There are multiple ways to use the command find in out terminal to, well, find a
 This use of find is very simple, since we only need the name of the directory to see what's inside.
 
 In this case, `technical` has some directories, like `biomed` and `plos`.
-1. Running the command `find technical/biomed`, we get all the files inside. (The output is cut short because of excessive output).
+1. Running the command `find technical -mtime -1`, we get all the files in technical that have been modified less day a day ago.
 ```
-noemyvalencia@Noemys-MacBook-Air docsearch % find technical/biomed
-technical/biomed
-technical/biomed/1472-6807-2-2.txt
-technical/biomed/1471-2350-4-3.txt
-technical/biomed/1471-2156-2-3.txt
-technical/biomed/1471-2156-3-11.txt
-technical/biomed/1471-2121-3-10.txt
-technical/biomed/1471-2172-3-4.txt
-technical/biomed/gb-2002-4-1-r2.txt
-technical/biomed/gb-2003-4-6-r41.txt
-technical/biomed/1471-2466-1-1.txt
-technical/biomed/1471-2199-2-10.txt
-technical/biomed/1471-2202-2-9.txt
-technical/biomed/cc991.txt
-[...]
+Noemys-MacBook-Air:docsearch noemyvalencia$ find technical -mtime -1
+technical
+technical/.DS_Store
+technical/911report
+technical/911report/chapter-10.txt
+technical/911report/chapter-11.txt
 ```
-Although this is a very long output, it could be very useful in case of wanting to see the amount of files or even finding similarities in the way they're stored.
+This is a very uselful command when we've been working on different files and want easy access in case we need to go back and fourth, saving a lot of time.
 
 
-2. Same way, running `find technical/plos`, we get all the files inside. ((The output is cut short because of excessive output))
+2. Same way, running `find technical/911report -mtime +1`, we get all the files in technical/911report that have been modified more than a day ago.
 ```
-noemyvalencia@Noemys-MacBook-Air docsearch % find technical/plos
-technical/plos
-technical/plos/pmed.0020273.txt
-technical/plos/journal.pbio.0030032.txt
-technical/plos/pmed.0020065.txt
-technical/plos/pmed.0020071.txt
-technical/plos/pmed.0020059.txt
-technical/plos/pmed.0010039.txt
-technical/plos/journal.pbio.0020354.txt
-technical/plos/pmed.0010010.txt
-[...]
+Noemys-MacBook-Air:docsearch noemyvalencia$ find technical/911report -mtime +1
+technical/911report/chapter-13.4.txt
+technical/911report/chapter-13.5.txt
+technical/911report/chapter-13.1.txt
+technical/911report/chapter-13.2.txt
+technical/911report/chapter-13.3.txt
+technical/911report/chapter-3.txt
+technical/911report/chapter-2.txt
+technical/911report/chapter-1.txt
+technical/911report/chapter-5.txt
+technical/911report/chapter-6.txt
+technical/911report/chapter-7.txt
+technical/911report/chapter-9.txt
+technical/911report/chapter-8.txt
+technical/911report/preface.txt
+technical/911report/chapter-12.txt
 ```
-The same thing happends here, it's useful to find all the files in a certain directory when we don't have a clue of what they're call or how to locate them at all.
+The same thing happens here, it's useful to find all the files that have been modified under or over a certain time of our choosing for easy access, especially if we know the directory where it's stored too.
 
 ## Second implementation: 
 This use of the command is finding a file with a keyword in the last part of its name, for example:
